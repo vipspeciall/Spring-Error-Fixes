@@ -1,0 +1,37 @@
+For the Error that is following when you import OPEN API SPECIFICATION, there is "2 solutions" about that
+
+org.springframework.context.ApplicationContextException: 
+    Failed to start bean 'documentationPluginsBootstrapper'; nested exception is java.lang.NullPointerException
+
+1 -) Spring Version Solution
+
+  --> If you use the Springfox version that is following
+  
+      <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.9.2</version>
+      </dependency>
+  
+  --> This dependency is compitable Spring boot dependency that is following
+  
+      <parent>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-parent</artifactId>
+            <version>2.5.7</version>
+            <relativePath/>
+      </parent>
+      
+2-) Another Open Api Specification jar you should use down below this
+
+      <dependency>
+          <groupId>org.springdoc</groupId>
+          <artifactId>springdoc-openapi-ui</artifactId>
+          <version>1.6.9</version>
+      </dependency>
+    
+    --> And you should add the following line to the application.properties file
+
+      spring.mvc.pathmatch.matching-strategy = ANT_PATH_MATCHER
+
+  
